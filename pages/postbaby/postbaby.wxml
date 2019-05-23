@@ -1,0 +1,30 @@
+<view class='margin-top bg-white'>
+  <view wx:for='{{child}}' wx:key data-baby='{{item}}' catchtap='turn_addbaby_change' catchlongpress='longtap'  data-target="bottomModal">
+    <view hover-class='button-hover'>
+      <view style='margin: 20rpx'>
+        <view><text style='font-weight: bold'>{{item.name}}</text></view>
+        <view>
+          <text>证件号码：{{item.idcard}}</text>
+          <text class='wanshan text-blue'>长按删除，点击修改 ></text>
+        </view>
+        <view><text>就读学校：{{item.school}}</text></view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green" bindtap='delete_baby'>确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+    <view class="padding-xl">
+      是否确定删除？
+    </view>
+  </view>
+</view>
+
+<button class='weizhi' bindtap='turn_addbaby'>
+  <text class='icon-roundadd' style='font-size: 30rpx;'> 新增小孩信息</text>
+</button>

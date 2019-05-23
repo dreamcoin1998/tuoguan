@@ -1,0 +1,71 @@
+<view class="cu-bar search bg-white">
+  <view class="cu-avatar round" style="background-image:url({{touxiang}});"></view>
+  <view class="search-form round">
+    <text class="icon-search"></text>
+    <input type="text" placeholder="" confirm-type="search"></input>
+  </view>
+  <view class="action" bindtap='dakai' wx:if="{{city!='重新定位'}}">
+    <text>{{city}}</text>
+    <text class="icon-triangledownfill"></text>
+  </view>
+  <view class="action" bindtap='openSetting' wx:else>
+    <text>授权位置信息</text>
+    <text class="icon-triangledownfill"></text>
+  </view>
+</view>
+
+<wux-grids col="4" bordered="{{ false }}">
+  <wux-grid thumb="/pages/images/tuoguan.png" label="找托管" bind:click='turn_hosting'/>
+  <wux-grid thumb="/pages/images/job.png" label="招人才" bind:click='turn_jog'/>
+  <wux-grid thumb="/pages/images/ziliao.png" label="学习资料" bind:click='turn_kaifa'/>
+  <wux-grid thumb="/pages/images/game.png" label="开智小游戏" bind:click='turn_kaifa'/>
+</wux-grids>
+
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+<view class="cu-bar bg-white solid-bottom">
+  <view class='action'>
+    <text class='icon-titles text-orange '></text> 猜你喜欢
+  </view>
+  <view class='action' bindtap='turn_hosting'>
+    <text class='text-orange' style='flaot: right'>更多 >></text>
+  </view>
+</view>
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class='bg-white'>
+      <wux-media bindtap='turn_odr' thumb="{{shangjia.imagePath}}" thumbStyle='height: 120rpx' title="{{shangjia.name}}" label="">
+        <view>
+          <image wx:for="{{shangjia.star}}" wx:key src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <text class="text-orange" style='font-size: 35rpx'> {{shangjia.star}}.0</text>
+        </view>
+        <text class="text-black" style='float: right;font-size: 35rpx'>{{shangjia.distance}}</text>
+        <text class="icon-location text-gray">{{shangjia.address}}</text>
+      </wux-media>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white solid-bottom ">
+  <view class='action'>
+    <text class='icon-titles text-orange '></text> 热门推荐
+  </view>
+  <view class='action' bindtap='turn_jog'>
+    <text class='text-orange' style='flaot: right'>更多 >></text>
+  </view>
+</view>
+<view class="cu-card article" bindtap='turn_jog'>
+  <view class="cu-item shadow">
+    <view class='bg-white'>
+      <wux-media thumb="https://api.gaoblog.cn/api/v1.0/server/job?md5=photos/2019/04/26/xiangrikui.jpg" thumbStyle='height: 150rpx' title="地推兼职" label="男女不限，做事细心，必须大胆，敢于跟家长聊天，索要电话号码。执行力强，严肃拒绝混日子的，不认真的，做得好可以考虑长期兼职。工作时间：下午...">
+        <text class="text-red" style='float: right;font-size: 35rpx'>3000/月\n</text>
+        <text class="icon-location text-gray">湖南省衡阳市立新水映豪庭（红湘路）</text>
+      </wux-media>
+    </view>
+  </view>
+</view>

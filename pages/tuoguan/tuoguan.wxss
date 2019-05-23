@@ -1,0 +1,9 @@
+.image{
+  position: fixed;
+  height: 400rpx;
+  width: 100%;
+}
+
+.weizhi{
+  bottom: 0;
+}

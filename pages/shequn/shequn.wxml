@@ -1,0 +1,10 @@
+<view style='margin-bottom: 0'>
+  <image class='image' src='{{huati.dingtu}}'></image>
+</view>
+<view class='bg-white' style='margin-top: 0'>
+  <view class='title' style='margin-top: 0'>
+    <text style='font-size: 38rpx; margin-bottom: 20rxp'>{{huati.name}}\n</text>
+    <text style='font-size: 30rpx'>{{huati.jianjie}}</text>
+  </view>
+</view>
+

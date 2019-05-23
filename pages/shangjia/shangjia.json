@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "wux-media": "../../dist/media/index",
+    "wux-card": "../../dist/card/index",
+    "wux-cell-group": "../../dist/cell-group/index",
+    "wux-cell": "../../dist/cell/index",
+    "wux-button": "../../dist/button/index",
+    "wux-popup": "../../dist/popup/index"
+  }
+}

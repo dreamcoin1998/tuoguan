@@ -1,0 +1,58 @@
+.biaoti{
+  margin: 15rpx;
+  font-size: 35rpx;
+  font-weight: bold;
+  left: 35rpx;
+  margin-left: 35rpx;
+  color: black;
+}
+
+.daxiao1{
+  font-size: 15rpx;
+  margin-right: 0;
+}
+
+.daxiao{
+  font-size: 20rpx;
+  margin-right: 35rpx;
+}
+
+.dizhi{
+  font-size: 20rpx;
+  margin-left: 32rpx;
+}
+
+.biaoshi{
+  margin-bottom: 10rpx;
+  text-align: center;
+}
+
+.title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.denglu{
+  float: left;
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.jiazhang{
+  font-size: 32rpx;
+  font-weight: bold;
+  margin-top: 10rpx
+}
+
+.kecheng{
+  margin: 30rpx;
+  margin-bottom: 15rpx;
+  text-align: left
+}
+
+.neirong{
+  font-size: 28rpx;
+  margin: 10rpx;
+  margin-left: 30rpx;
+  text-align: left;
+}

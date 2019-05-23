@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "wux-divider": "../../dist/divider/index",
+    "wux-icon": "../../dist/icon/index",
+    "wux-grids": "../../dist/grids/index",
+    "wux-grid": "../../dist/grid/index",
+    "wux-card": "../../dist/card/index",
+    "wux-cell-group": "../../dist/cell-group/index",
+    "wux-cell": "../../dist/cell/index",
+    "wux-button": "../../dist/button/index",
+    "wux-popup": "../../dist/popup/index",
+    "wux-media": "../../dist/media/index"
+  },
+  "navigationBarTitleText": "小课堂"
+}

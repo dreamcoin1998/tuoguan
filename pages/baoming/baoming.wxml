@@ -1,0 +1,49 @@
+<view class='bg-white'>
+  <wux-media thumb="{{value.imagePath}}" thumbStyle='height: 100rpx'>
+    <text class='title text-black'>{{value.type}}{{value.name}}</text>
+    <view>
+      <text class='text-red' style='margin-right: 20rpx; font-size: 25rpx;'>￥{{value.pay}}/月</text>
+      <text class='text-red' style='margin-right: 20rpx; font-size: 25rpx;'>{{value.pay * 4.5}}/学期</text>
+    </view>
+  </wux-media>
+</view>
+
+<view class='margin-top' style='margin-top: 18rpx;'>
+  <wux-card full="{{ true }}">
+    <view class="biaoshi text-black" slot="body">招生对象：<text style='color: black;font-size: 30rpx'>{{value.student}}</text></view>
+    <view class="biaoshi text-black" slot="body">开课日期：<text style='color: black;font-size: 30rpx'>{{value.date}}</text></view>
+    <view class="biaoshi text-black" slot="body">招生人数：<text style='color: black;font-size: 30rpx'>{{value.renshu}}</text></view>
+    <view class="biaoshi text-black" slot="body">餐费：<text style='color: black;font-size: 30rpx'>{{value.eatcost}}/月 {{value.eatcost * 4.5}}/学期</text></view>
+  </wux-card>
+</view>
+
+<view class='bg-white margin-top' style='margin-top: 10rpx'>
+  <wux-media bindtap='turn_odr' thumb="{{shangjia.imagePath}}" thumbStyle='height: 100rpx' title="{{shangjia.name}}" label="">
+    <view>
+      <image wx:for="{{shangjia.star}}" wx:key src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+      <text class="text-orange" style='font-size: 35rpx'> {{shangjia.star}}.0</text>
+    </view>
+    <text class="text-black" style='float: right;font-size: 35rpx'>{{shangjia.distance}}</text>
+    <text class="icon-location text-gray">{{shangjia.address}}</text>
+  </wux-media>
+</view>
+
+<view class='margin-top' style='margin-top: 18rpx; margin-bottom: 120rpx'>
+  <wux-card full="{{ true }}" title="课程内容">
+    <view slot="body">{{shangjia.describe}}
+    <image src='{{value.kecheng}}' class='kecheng'></image>
+    </view>
+  </wux-card>
+</view>
+
+<view class="box" style='position:fixed; bottom: 0; width: 100%'>
+  <view class="dibar cu-bar bg-white tabbar border shop">
+    <button class="daxiao action" bindtap='phone'>
+      电话联系
+    </button>
+    <button class="daxiao action" open-type="share" style='color: green'>
+      分享好友
+    </button>
+    <view class="bg-blue submit" bindtap="turn_dingdan">立即报名</view>
+  </view>
+</view>

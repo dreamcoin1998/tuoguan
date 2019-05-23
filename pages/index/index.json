@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wux-accordion-group": "../../dist/accordion-group/index",
+    "wux-accordion": "../../dist/accordion/index"
+  },
+  "navigationBarTitleText": "个人中心"
+}

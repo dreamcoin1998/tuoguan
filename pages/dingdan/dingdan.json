@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "wux-card": "../../dist/card/index",
+    "wux-media": "../../dist/media/index",
+    "wux-tabs": "../../dist/tabs/index",
+    "wux-tab": "../../dist/tab/index",
+    "wux-badge": "../../dist/badge/index",
+    "wux-cell-group": "../../dist/cell-group/index",
+    "wux-cell": "../../dist/cell/index",
+    "wux-button": "../../dist/button/index",
+    "wux-popup": "../../dist/popup/index"
+  }
+}

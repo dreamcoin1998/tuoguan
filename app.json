@@ -1,0 +1,66 @@
+{
+  "pages": [
+    "pages/homepage/homepage",
+    "pages/findjob/findjob",
+    "pages/index/index",
+    "pages/hosting/hosting",
+    "pages/community/community",
+    "pages/service/service",
+    "pages/baby/baby",
+    "pages/coupon/coupon",
+    "pages/order/order",
+    "pages/recruitment/recruitment",
+    "pages/ticket/ticket",
+    "pages/postbaby/postbaby",
+    "pages/job/job",
+    "pages/shangjia/shangjia",
+    "pages/baoming/baoming",
+    "pages/dingdan/dingdan",
+    "pages/shequn/shequn",
+    "pages/tuoguan/tuoguan",
+    "pages/addbaby/addbaby"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息仅用于展示您所在地区的商家信息，否则将无法为您服务。"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "好托管在线",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/homepage/homepage",
+        "text": "首页",
+        "iconPath": "pages/images/home.png",
+        "selectedIconPath": "pages/images/home1.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "小课堂",
+        "iconPath": "pages/images/ketang.png",
+        "selectedIconPath": "pages/images/ketang_s.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的",
+        "iconPath": "pages/images/user.png",
+        "selectedIconPath": "pages/images/user1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 1000000,
+    "connectSocket": 100000,
+    "uploadFile": 100000,
+    "downloadFile": 100000
+  }
+}

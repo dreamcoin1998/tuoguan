@@ -1,0 +1,95 @@
+<form bindsubmit='formSubmit'>
+  <view class="cu-form-group margin-top" bindtap='upload_touxiang'>
+    <view class="title">上传头像*</view>
+    <image name='touxiang' class="cu-avatar radius bg-gray" src="{{touxiang}}"></image>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">姓名*</view>
+    <input name='name' value='{{name}}' placeholder="{{name?name:'请输入姓名'}}" style='text-align: right'></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">出生日期</view>
+		<picker name='date' mode="date" value="{{date}}" start="2000-01-01" end="2019-12-31" bindchange="DateChange">
+			<view class="picker">
+				{{date?date:'请输入出生日期'}}
+			</view>
+		</picker>
+	</view>
+  <radio-group class="block" name='sex'>
+    <view class="cu-form-group">
+      <view class="title">性别</view>
+      <view>
+        <radio class="green margin-left-sm" value='男'></radio>
+        <text>男</text>
+        <radio class="green margin-left-sm" value='女'></radio>
+        <text>女</text>
+      </view>
+    </view>
+  </radio-group>
+  <view class="cu-form-group">
+		<view class="title">证件类型*</view>
+		<picker bindchange="PickerChange" value="{{picker[index]}}" range="{{picker}}" name='card_type'>
+			<view class="picker">
+				{{index!=null?picker[index]:'请选择证件类型'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+    <view class="title">证件号码*</view>
+    <input placeholder="{{idcard?idcard:'请输入证件号码'}}" type='idcard' style='text-align: right' name='idcard' value='{{idcard}}'></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">年级</view>
+		<picker name='grade' bindchange="GradeChange" value="{{index1}}" range="{{grade}}">
+			<view class="picker">
+				{{index1!=null?grade[index1]:'请选择就读年级'}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+    <view class="title">学校</view>
+    <input value='{{school}}' name='school' placeholder="{{school?school:'请输入就读学校'}}" style='text-align: right'></input>
+  </view>
+  <view class="cu-form-group">
+		<view class="title">学校区域</view>
+		<picker name='school_area' mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}">
+			<view class="picker">
+				{{region[0]}}，{{region[1]}}，{{region[2]}}
+			</view>
+		</picker>
+	</view>
+  <view class="cu-form-group">
+    <view class="title">紧急联系人*</view>
+    <input value='{{connect_man}}' name='connect_man' placeholder="{{connect_man?connect_man:'请输入紧急联系人'}}" style='text-align: right'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">紧急联系人电话*</view>
+    <input value='{{connect_phone}}' name='connect_phone' placeholder="{{connect_phone?connect_phone:'请输入紧急联系人电话'}}" style='text-align: right'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">备用联系人</view>
+    <input value='{{by_connect_man}}' name='by_connect_man' placeholder="{{by_connect_man?by_connect_man:'请输入备用联系人'}}" style='text-align: right'></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">备用联系人电话</view>
+    <input value='{{by_connect_phone}}' name='by_connect_phone' placeholder="{{by_connect_phone?by_connect_phone:'请输入备用联系人电话'}}" style='text-align: right'></input>
+  </view>
+  <radio-group class="block margin-top" name='guomin' bindchange='selected'>
+    <view class="cu-form-group">
+      <view class="title">过敏史</view>
+      <view>
+        <radio class="green margin-left-sm" value='有'></radio>
+        <text>有</text>
+        <radio class="green margin-left-sm" value='无' checked='true'></radio>
+        <text>无</text>
+      </view>
+    </view>
+  </radio-group>
+  <view class="cu-form-group align-start">
+		<view class="title"></view>
+		<textarea value='{{placeholder}}' name='guomin_history' maxlength="-1" disabled="{{modalName!=null}}" disabled='{{visible}}' bindinput="textareaBInput" placeholder="{{placeholder}}"></textarea>
+	</view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-green margin-tb-sm lg" form-type='submit'>提交保存</button>
+  </view>
+</form>

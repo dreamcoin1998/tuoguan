@@ -1,0 +1,135 @@
+<view class='margin-top' style='margin-top: 18rpx;'>
+  <wux-card full="{{ true }}">
+    <view class="biaoshi text-black" slot="body">
+      报名小孩
+      <text class='tianjia' bindtap='add_baby'>添加小孩</text>
+    </view>
+    <view slot="body">
+      <view class="grid col-3 padding-sm" style='margin-top: 20rpx'>
+        <view wx:for="{{child}}" data-item='{{item}}' class="padding-xs" wx:key>
+          <button class="cu-btn orange lg block {{item.checked?'bg-green':'line-black'}}" bindtap="ChooseBaby" data-value="{{item}}"> {{item.name}}
+          </button>
+        </view>
+      </view>
+    </view>
+  </wux-card>
+</view>
+
+<view class='margin-top' style='margin-top: 20rpx'>
+  <wux-card thumb="{{shangjia}}" thumbStyle="height: 38rpx; width: 38rpx" full="{{ true }}" title="{{value.shangjia}}">
+    <view slot="body">
+      <view class='bg-white margin-top' style='margin-top: 10rpx'>
+        <wux-media thumb="{{value.imagePath}}" thumbStyle='height: 100rpx'>
+          <text class='title text-black'>{{value.type}}{{value.name}}</text>
+          <view>
+            <text style='margin-right: 20rpx; font-size: 25rpx;'>招生人数：{{value.renshu}}</text>
+          </view>
+          <view>
+            <text style='margin-right: 20rpx; font-size: 25rpx;'>上课时间：{{value.date}}</text>
+          </view>
+          <view>
+            <text style='margin-right: 20rpx; font-size: 25rpx;'>招生对象：{{value.student}}</text>
+          </view>
+          <view>
+            <text style='margin-right: 20rpx; font-size: 25rpx;'>餐费：{{value.eatcost}}/月</text>
+            <text style='margin-right: 20rpx; font-size: 25rpx;'>{{value.eatcost * 4.5}}/学期</text>
+          </view>
+        </wux-media>
+      </view>
+    </view>
+  </wux-card>
+</view>
+
+<view class="page margin-top bg-white" style='margin-top: 18rpx'>
+  <view class="page__bd">
+    <wux-tabs defaultCurrent="tab1" bindchange="onTabsChange">
+      <wux-tab key="tab1" title="幼儿园"></wux-tab>
+      <wux-tab key="tab2" title="小学"></wux-tab>
+      <wux-tab key="tab3" title="中学"></wux-tab>
+    </wux-tabs>
+  </view>
+  <view wx:for='{{tabs}}' hidden='{{!item.isShow}}' wx:key>
+    <view wx:for="{{item.child}}" wx:for-item="banji" wx:key>
+      <button disabled='{{!banji.click}}' style='margin: 20rpx; height: 60rpx;' hover-class='none' class="cu-btn orange lg block {{banji.checked?'bg-green':'line-black'}}" bindtap="ChooseCheckbox" data-value="{{banji}}">
+        {{banji.class}}   课程费：￥{{value.pay}}/月 ￥{{value.pay * 5}}/学期
+      </button>
+    </view>
+  </view>
+</view>
+
+<view class='margin-top' style='margin-top: 18rpx'>
+  <wux-card full="{{ true }}">
+    <view slot="body">
+      <view class="biaoshi text-black" slot="body">
+        选择托管时间
+      </view>
+      <view class="grid col-3 padding-sm" style='margin-top: 20rpx'>
+        <view wx:for="{{time}}" wx:for-item="shijian" data-item='{{shijian}}' class="padding-xs" wx:key="{{shijian}}">
+          <button hover-class='none' class="cu-btn orange lg block {{shijian.checked?'bg-green':'line-black'}}" bindtap="ChooseTime" style='height: 60rpx;' data-value="{{shijian}}"> {{shijian.name}}
+          </button>
+        </view>
+      </view>
+    </view>
+  </wux-card>
+</view>
+
+<view class='margin-top' style='margin-top: 3rpx;margin-bottom: 18rpx'>
+  <wux-card full="{{ true }}">
+    <view slot="body">
+      <view class="biaoshi text-black" slot="body">
+        选择餐食
+      </view>
+      <view class="grid col-3 padding-sm" style='margin-top: 20rpx'>
+        <view wx:for="{{eat}}" wx:for-item="chi" data-item='{{chi}}' class="padding-xs" wx:key="{{chi}}">
+          <button hover-class='none' class="cu-btn orange lg block {{chi.checked?'bg-green':'line-black'}}" bindtap="ChooseEat" style='height: 60rpx;' data-value="{{chi}}"> {{chi.name}}
+          </button>
+        </view>
+      </view>
+    </view>
+  </wux-card>
+</view>
+
+<view class="cu-form-group margin-top" style='margin-top: 18rpx'>
+  <view class="title text-black">入学时间</view>
+  <picker mode="date" value="{{date}}" start="2019-05-02" end="2025-09-01" bindchange="DateChange">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+</view>
+
+<view class='margin-top' style='margin-top: 18rpx; margin-bottom: 120rpx'>
+  <wux-card full="{{ true }}" title="优惠券" extra="暂无优惠券 >">
+    <view slot="body">
+      <view class='bg-white margin-top' style='margin-top: 0rpx'>
+        <view style='margin-bottom: 15rpx'>
+          <text style='margin-left: 0rpx; font-size: 28rpx;'>课程费：</text>
+          <text style='margin-right: 20rpx; font-size: 28rpx; float: right'>￥{{pay}}</text>
+        </view>
+        <view style='margin-bottom: 15rpx'>
+          <text style='margin-left: 0rpx; font-size: 28rpx;'>餐费：</text>
+          <text style='margin-right: 20rpx; font-size: 28rpx; float: right'>￥{{eatcost}}</text>
+        </view>
+        <view style='margin-bottom: 15rpx' bindtouchstart='open1'>
+          <text style='margin-left: 0rpx; font-size: 28rpx;'>安全包：</text>
+          <text style='margin-right: 20rpx; font-size: 28rpx; float: right'>￥{{safe}}</text>
+        </view>
+      </view>
+    </view>
+  </wux-card>
+</view>
+
+<wux-popup closable visible="{{ visible1 }}" title="安全包资费说明" content="安全包资费包含平台使用费和保险费。保险最高保额5万人民币，仅在托管机构内发生意外时生效。平台服务内容包含：实时监控、签到签退提醒、每日动态等服务。" bind:close="onClose1" bind:closed="onClosed1">
+</wux-popup>
+
+<view class="box" style='position:fixed; bottom: 0; width: 100%'>
+  <view class="dibar cu-bar bg-white tabbar border shop">
+    <button class="daxiao action" bindtap='phone'>
+      电话联系
+    </button>
+    <button class="daxiao action" open-type="share" style='color: green'>
+      分享好友
+    </button>
+    <view class="bg-blue submit" bindtap="turn_dingdan">立即支付</view>
+  </view>
+</view>

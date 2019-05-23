@@ -1,0 +1,9 @@
+.biaoshi{
+  margin: 7rpx;
+}
+
+.tianjia{
+  float: right;
+  font-size: 30rpx;
+  color: blue;
+}

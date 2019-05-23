@@ -1,0 +1,33 @@
+/* pages/job/job.wxss */
+.price{
+  font-size: 40rpx;
+  color: red;
+  margin: 10rpx;
+}
+
+.biaoshi{
+  margin: 7rpx;
+}
+
+.biaoshi1{
+  margin: 20rpx;
+}
+
+.box {  
+  margin: 20rpx 0; 
+}
+
+.box view.cu-bar {
+  margin-top: 20rpx; 
+}
+
+.dibar{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.daxiao{
+   font-size: 30rpx;
+   font-weight: bold;
+}

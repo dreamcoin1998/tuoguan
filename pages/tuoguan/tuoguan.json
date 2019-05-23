@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "wux-icon": "../../dist/icon/index",
+    "wux-grids": "../../dist/grids/index",
+    "wux-grid": "../../dist/grid/index",
+    "wux-button": "../../dist/button/index"
+  },
+  "navigationBarTitleText": "我的托管"
+}

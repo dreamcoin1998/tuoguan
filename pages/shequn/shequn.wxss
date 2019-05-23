@@ -1,0 +1,9 @@
+/* pages/shequn/shequn.wxss */
+.image{
+  height: 350rpx;
+  width: 100%
+}
+
+.title{
+  margin: 20rpx;
+}

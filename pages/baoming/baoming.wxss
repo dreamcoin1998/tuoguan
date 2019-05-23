@@ -1,0 +1,18 @@
+.title{
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.biaoshi{
+  margin: 7rpx;
+}
+
+.kecheng{
+  margin-top: 30rpx;
+  height: 800rpx;
+}
+
+.daxiao{
+  font-size: 20rpx;
+  margin-right: 35rpx;
+}

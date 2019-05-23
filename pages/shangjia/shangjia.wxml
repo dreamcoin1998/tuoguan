@@ -1,0 +1,103 @@
+<swiper class="screen-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{swiperList}}" wx:key>
+    <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+    <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+  </swiper-item>
+</swiper>
+
+<view class='bg-white'>
+  <view class='biaoti'>{{shangjia.name}}</view>
+  <view style='left: 35rpx;margin-left: 32rpx'>
+    <image wx:for="{{shangjia.star}}" wx:key src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+    <text class="text-orange" style='font-size: 35rpx'> {{shangjia.star}}.0</text>
+  </view>
+  <view class="biaoshi">
+    <text class="daxiao1 icon-roundcheck text-green"></text>
+    <text class="daxiao text-black">实时监控 </text>
+    <text class="daxiao1 icon-roundcheck text-green"></text>
+    <text class="daxiao text-black">购买保险 </text>
+    <text class="daxiao1 icon-roundcheck text-green"></text>
+    <text class="daxiao text-black">实名认证 </text>
+    <text class="daxiao1 icon-roundcheck text-green"></text>
+    <text class="daxiao text-black">学历认证 </text>
+    <text class="daxiao1 icon-roundcheck text-green"></text>
+    <text class="daxiao text-black">健康认证 </text>
+  </view>
+  <view class='text-black icon-location dizhi'>{{shangjia.address}}</view>
+</view>
+
+<view class='bg-white margin-top' style='margin-top: 18rpx;' wx:for='{{shangjia.tuoguan}}' wx:key='{{item}}' data-item='{{item}}' catchtap='baoming'>
+  <wux-media thumb="{{item.imagePath}}" thumbStyle='height: 100rpx'>
+    <text class='title text-black'>{{item.type}}{{item.name}}</text>
+    <view>
+      <text class='text-red' style='margin-right: 20rpx; font-size: 25rpx;'>￥{{item.pay}}/月</text>
+      <text class='text-red' style='margin-right: 20rpx; font-size: 25rpx;'>{{item.pay * 4.5}}/学期</text>
+    </view>
+    <view>
+      <text style='margin-right: 20rpx; font-size: 25rpx;'>招生对象：{{item.student}}</text>
+    </view>
+    <view>
+      <text style='margin-right: 20rpx; font-size: 25rpx;'>餐费：{{item.eatcost}}/月</text>
+      <text style='margin-right: 20rpx; font-size: 25rpx;'>{{item.eatcost * 4.5}}/学期</text>
+    </view>
+  </wux-media>
+</view>
+
+<view class='margin-top' style='margin-top: 20rpx'>
+  <wux-card full="{{ true }}" title="商家介绍">
+    <view slot="body">{{shangjia.describe}}</view>
+  </wux-card>
+</view>
+
+<view class='margin-top' style='margin-top: 20rpx; margin-bottom: 120rpx'>
+  <wux-card full="{{ true }}" title="家长评价（7）" extra="查看全部 >">
+    <view slot="body">
+    <view>
+      <view><image class='denglu' src='{{denglu}}'></image></view>
+      <view style='margin-left: 100rpx;'>
+        <view><text class='jiazhang text-black'>王同学家长</text></view>
+        <view style='left: 35rpx;'>
+          <image src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <image src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <image src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <image src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <image src='../images/star.png' style='height:35rpx; width:35rpx;'></image>
+          <text class="text-orange" style='font-size: 35rpx'> 5.0</text>
+          <text class='text-black' style='float: right; font-size: 32rpx'>2019-4-30</text>
+        </view>
+      </view>
+      <view>
+        <text class='text-black' style='font-size: 28rpx'>孩子在这里待得不错，老师们很贴心，照顾得很周到，孩子回家说很开心。</text>
+      </view>
+      <view style='margin-top: 18rpx'><text class='text-blue' style='font-size: 25rpx;'>#指导耐心 #经验丰富 #环境舒适</text></view>
+    </view>
+    </view>
+  </wux-card>
+</view>
+
+<view class="box" style='position:fixed; bottom: 0; width: 100%'>
+  <view class="dibar cu-bar bg-white tabbar border shop">
+    <button class="daxiao action" bindtap='phone'>
+      电话联系
+    </button>
+    <button class="daxiao action" open-type="share" style='color: green'>
+      分享好友
+    </button>
+    <view class="bg-blue submit" bindtap="open2">立即报名</view>
+  </view>
+</view>
+
+<wux-popup position="bottom" visible="{{ visible2 }}" bind:close="onClose2">
+  <view class='kecheng'><text>课程费：</text><text class='text-red'>{{kecheng}}</text></view>
+  <view class='neirong' wx:if="{{type}}"><text>课程内容：</text><text>{{ type }}</text></view>
+  <view class='neirong' wx:if="{{type}}"><text>餐费：</text><text>￥{{ eatcost }}.00/月 ￥{{ eatcost * 4.5 }}.00/学期</text></view>
+  <view class="grid col-2 padding-sm">
+    <view wx:for="{{shangjia.tuoguan}}" data-item='{{item}}' class="padding-xs" wx:key="{{item}}">
+      <button class="cu-btn orange lg block {{item.checked?'bg-green':'line-black'}}" bindtap="ChooseCheckbox" data-value="{{item}}"> {{item.name}}
+      </button>
+    </view>
+  </view>
+  <view style='width: 100%'>
+      <button class='bg-blue' bindtap="close2">立即报名</button>
+  </view>
+</wux-popup>

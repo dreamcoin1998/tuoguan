@@ -1,0 +1,41 @@
+<image class='image' src='{{shequn}}'></image>
+<view class="cu-bar bg-white solid-bottom " bindtap='turn_ticket'>
+  <view class='action'>
+    <text class='icon-calendar text-orange '></text> 发布历史
+  </view>
+  <view class='action' bindtap=''>
+    <text class='text-orange' style='flaot: right'> >></text>
+  </view>
+</view>
+
+<view class="bg-white padding">
+  <view>
+    <text class='huati'>请选择喜欢的话题</text>
+    <text class='text-orange more' bindtap="open2">更多 ></text>
+  </view>
+  <view class='margin-top' style='margin-top: 20rpx'></view>
+  <view class="grid col-2 grid-square">
+    <view data-huati='{{huati[0]}}' bindtap='turn_shequn'>
+      <image class='zhuti' src='{{huati[0].picture}}'></image>
+      <view class='type bg-white'><text class='icon-roundcheck text-black'></text>{{huati[0].name}}</view>
+    </view>
+    <view data-huati='{{huati[1]}}' bindtap='turn_shequn'>
+      <image class='zhuti2' src='{{huati[1].picture}}'></image>
+      <view class='type bg-white'><text class='icon-roundcheck text-black'></text>{{huati[1].name}}</view>
+    </view>
+    <view data-huati='{{huati[2]}}' bindtap='turn_shequn'>
+      <image class='zhuti' src='{{huati[2].picture}}'></image>
+      <view class='type bg-white'><text class='icon-roundcheck text-black'></text>{{huati[2].name}}</view>
+    </view>
+    <view data-huati='{{huati[3]}}' bindtap='turn_shequn'>
+      <image class='zhuti2' src='{{huati[3].picture}}'></image>
+      <view class='type bg-white'><text class='icon-roundcheck text-black'></text>{{huati[3].name}}</view>
+    </view>
+  </view>
+</view>
+
+<wux-popup position="bottom" visible="{{ visible2 }}" bind:close="onClose2">
+  <view wx:for='{{huati}}' bindtap='turn_shequn' wx:key data-huati='{{item}}'>
+    <wux-media thumb="{{item.picture}}" title="{{item.name}}" label="{{item.jianjie}}"></wux-media>
+  </view>
+</wux-popup>

@@ -1,0 +1,31 @@
+.image{
+  height: 350rpx;
+  width: 100%
+}
+
+.zhuti2{
+  height: 250rpx;
+  width: 100%;
+  float: right;
+}
+
+.zhuti{
+  height: 250rpx;
+  width: 100%;
+  float: left;
+}
+
+.type{
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.huati{
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.more{
+  float: right;
+  font-size: 30rpx;
+}
