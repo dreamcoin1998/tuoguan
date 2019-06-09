@@ -72,8 +72,8 @@ App({
     appId: 'wx2b23a11573d3a8f7',
     //serverUrl: 'https://api.gaoblog.cn',
     apiVersion: '/api/v1.0/',
-    //serverUrl: 'http://192.168.43.202:8000',
-    serverUrl: 'http://127.0.0.1:8000',
+    serverUrl: 'http://192.168.43.202:8000',
+    //serverUrl: 'http://127.0.0.1:8000',
     city: '',
     auth: {
       isAuthorized: false

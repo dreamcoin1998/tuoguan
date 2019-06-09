@@ -18,7 +18,9 @@
     "pages/dingdan/dingdan",
     "pages/shequn/shequn",
     "pages/tuoguan/tuoguan",
-    "pages/addbaby/addbaby"
+    "pages/addbaby/addbaby",
+    "pages/kaidian/kaidian",
+    "pages/idcard/idcard"
   ],
   "permission": {
     "scope.userLocation": {

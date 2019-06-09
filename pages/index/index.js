@@ -47,9 +47,19 @@ Page({
     }
   },
 
+  /**
+   * 展示模态框，弃用
+   * 
   showModal(e) {
     this.setData({
       modalName: e.currentTarget.dataset.target
+    })
+  },
+  */
+
+  turn_kaidian(){
+    wx.navigateTo({
+      url: '/pages/kaidian/kaidian'
     })
   },
 

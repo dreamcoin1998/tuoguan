@@ -35,3 +35,7 @@
 <view class="padding flex flex-direction">
   <button class="cu-btn bg-green margin-tb-sm lg" bindtap='turn_hosting'>去找托管班</button>
 </view>
+
+<view class='bg-white' style='padding-bottom: 3000rpx'>
+
+</view>

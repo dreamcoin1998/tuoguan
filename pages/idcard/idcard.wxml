@@ -1,0 +1,71 @@
+<view class="cu-bar bg-white">
+  <view class="action">
+    法人代表身份证正面(人像面)*必填
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="bg-img" wx:for="{{imageID_Z}}" wx:key="{{index}}" bindtap="ViewImage_Z">
+      <image src='{{imageID_Z[0]}}' mode='aspectFill'></image>
+      <view class="cu-tag bg-red" catchtap="DelImg" data-type="imageID_Z">
+        <text class="icon-close"></text>
+      </view>
+    </view>
+    <view class="solids" bindtap="ChooseImg_Z" hidden='{{imageID_Z_selected}}'>
+      <text class="icon-cameraadd"></text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white">
+  <view class="action">
+    法人代表身份证反面(国徽面)*必填
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="bg-img" wx:for="{{imageID_F}}" wx:key="{{index}}" bindtap="ViewImage_F">
+      <image src='{{imageID_F[0]}}' mode='aspectFill'></image>
+      <view class="cu-tag bg-red" catchtap="DelImg" data-type="imageID_F">
+        <text class="icon-close"></text>
+      </view>
+    </view>
+    <view class="solids" bindtap="ChooseImg_F" hidden='{{imageID_F_selected}}'>
+      <text class="icon-cameraadd"></text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-bar bg-white">
+  <view class="action">
+    营业执照*必填
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <view class="grid col-3 grid-square flex-sub">
+    <view class="bg-img" wx:for="{{image_Y}}" wx:key="{{index}}" bindtap="ViewImage_Y">
+      <image src='{{image_Y[index]}}' mode='aspectFill'></image>
+      <view class="cu-tag bg-red" catchtap="DelImg" data-type="image_Y">
+        <text class="icon-close"></text>
+      </view>
+    </view>
+    <view class="solids" bindtap="ChooseImg_Y" hidden='{{imageID_Y_selected}}'>
+      <text class="icon-cameraadd"></text>
+    </view>
+  </view>
+</view>
+
+<view class="cu-form-group">
+  <view style='margin: 10rpx'>
+    <text>温馨提示：请耐心等待，材料审核将在3个工作日内完成，如有疑问，请联系客服</text>
+  </view>
+</view>
+
+<view class='bg-white' style='padding-bottom: 100rpx'></view>
+
+<view class="padding flex flex-direction weizhi">
+  <button class="cu-btn bg-{{color}} margin-tb-sm lg" bindtap='next' hover-class='{{hover}}'>{{wenzi}}</button>
+</view>

@@ -1,0 +1,29 @@
+.block{
+  margin: 10rpx;
+  margin-top: 20rpx;
+}
+
+.wenzi{
+  padding-bottom: 15rpx;
+}
+
+.update{
+  width: 80rpx;
+  height: 80rpx;
+  display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+
+.img{
+  vertical-align:middle;
+	display:inline-block;
+}
+
+.weizhi{
+  position:fixed; 
+  bottom: 0; 
+  width: 100%;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
