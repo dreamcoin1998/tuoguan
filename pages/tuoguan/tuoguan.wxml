@@ -4,7 +4,7 @@
       {{item.name}}
     </view>
   </scroll-view>
-  <image class='image' src='/pages/images/kk.png' style='height: 320rpx; width: 100%;'></image>
+  <image class='image' src='/pages/images/kk.png'></image>
   <view style='margin-top: 330rpx; text-align: center;' wx:if="{{!TabCur}}">
     <text class='text-grey'>您还没有报读托管班，暂无动态</text>
   </view>
@@ -34,8 +34,4 @@
 
 <view class="padding flex flex-direction">
   <button class="cu-btn bg-green margin-tb-sm lg" bindtap='turn_hosting'>去找托管班</button>
-</view>
-
-<view class='bg-white' style='padding-bottom: 3000rpx'>
-
 </view>

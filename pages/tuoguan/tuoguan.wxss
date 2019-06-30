@@ -1,7 +1,8 @@
 .image{
   position: fixed;
-  height: 400rpx;
+  height: 320rpx;
   width: 100%;
+  background-repeat: repeat;
 }
 
 .weizhi{

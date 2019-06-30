@@ -77,12 +77,27 @@ Page({
         }
       })
     } else if (app.globalData.auth.isAuthorized){
-      console.log("执行哈哈哈")
       wx.showLoading({
         title: '申请中',
         success() {
-          that.setData({
-            isShenqing: true
+          var nickName = app.globalData.userInfo.nickName
+          var id = that.data.xinxi.id
+          wx.request({
+            url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/apply',
+            header: {
+              "content-type": "application/json"
+            },
+            method: 'POST',
+            data: { 'id': id, 'nickname': nickName},
+            success(res){
+              console.log('返回数据：', res)
+              var result_code = res.data.result_code
+              if(result_code == 0){
+                that.setData({
+                  isShenqing: true
+                })
+              }
+            }
           })
           wx.hideLoading()
           wx.showToast({
@@ -109,11 +124,31 @@ Page({
       method: 'POST',
       header: header,
       data: {'xinxi_id': event},
-      success: function(res){
+      success: function(res){                 
         console.log(res)
         that.setData({
           tuoguan: res.data.data
         })
+      }
+    })
+  },
+
+  /**
+   * 获取申请状态
+   */
+  getApplyStatus(id, nc){
+    var that = this
+    wx.request({
+      url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/status',
+      header: { 'content-type': 'application/json'},
+      method: 'POST',
+      data: {'id': id, "nc": nc},
+      success: function(res) {
+        if(res.data.data){
+          that.setData({
+            isShenqing: true
+          })
+        }
       }
     })
   },
@@ -131,10 +166,15 @@ Page({
       recruitment.image[i] = imagePath + recruitment.image[i]
     }
     that.getXinxi(recruitment.id)
+    if(app.globalData.userInfo){
+      that.getApplyStatus(recruitment.id, app.globalData.userInfo.nickName)
+    }
     this.setData({
       xinxi: recruitment
     })
   },
+
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

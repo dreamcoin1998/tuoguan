@@ -55,19 +55,38 @@ Page({
         success: function (res) {
           console.log(res)
           var userInfo = res.userInfo
-          var nickname = userInfo.nickName // 获取用户昵称
-          data['nickname'] = nickname
-          console.log(res.userInfo.nickName)
-          if(that.data.action=='add'){
-            wx.uploadFile({
-              url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/upload',
-              filePath: that.data.touxiang[0],
-              name: 'touxiang',
-              success(res) {
-                console.log(res)
-                console.log(JSON.parse(res.data))
-                var image = JSON.parse(res.data).data[0].md5
-                data['touxiang'] = image
+          wx.login({
+            success(res){
+              data['code'] = res.code
+              data['appid'] = app.globalData.appId
+              if (that.data.action == 'add') {
+                wx.uploadFile({
+                  url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/upload',
+                  filePath: that.data.touxiang[0],
+                  name: 'touxiang',
+                  success(res) {
+                    console.log(res)
+                    console.log(JSON.parse(res.data))
+                    var image = JSON.parse(res.data).data[0].md5
+                    data['touxiang'] = image
+                    data['id'] = that.data.id
+                    data['action'] = that.data.action
+                    wx.request({
+                      url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/baby',
+                      method: 'POST',
+                      header: header,
+                      data: data,
+                      success(res) {
+                        console.log(res)
+                        wx.navigateBack({
+                          url: '/pages/postbaby/postbaby'
+                        })
+                      }
+                    })
+                  }
+                })
+              } else {
+                data['touxiang'] = that.data.touxiang_md5
                 data['id'] = that.data.id
                 data['action'] = that.data.action
                 wx.request({
@@ -83,27 +102,10 @@ Page({
                   }
                 })
               }
-            })
-          }else{
-            data['touxiang'] = that.data.touxiang_md5
-            data['id'] = that.data.id
-            data['action'] = that.data.action
-            wx.request({
-              url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/baby',
-              method: 'POST',
-              header: header,
-              data: data,
-              success(res) {
-                console.log(res)
-                wx.navigateBack({
-                  url: '/pages/postbaby/postbaby'
-                })
-              }
-            })
-          }
+            }
+          })  
         }
       })
-      
     }else{
       wx.showModal({
         content: '标注‘ * ’为必填项，请填写完整后提交保存',

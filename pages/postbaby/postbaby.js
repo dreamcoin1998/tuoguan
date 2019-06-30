@@ -81,14 +81,21 @@ Page({
     wx.getUserInfo({
       success(res){
         var userInfo = res.userInfo
-        var nickname = userInfo.nickName // 获取用户昵称
-        wx.request({
-          url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/getchild?n=' + nickname,
-          success(e){
-            console.log(e)
-            that.setData({
-              child: e.data.data
-            })
+        // var nickname = userInfo.nickName // 获取用户昵称
+        // 不能用昵称去检索
+        wx.login({
+          success(res){
+            if(res.code){
+              wx.request({
+                url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/getchild?code=' + res.code + '&appId=' + app.globalData.appId,
+                success(e) {
+                  console.log(e)
+                  that.setData({
+                    child: e.data.data
+                  })
+                }
+              })
+            }
           }
         })
       }

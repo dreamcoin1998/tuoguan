@@ -2,7 +2,7 @@
   <view class="cu-avatar round" style="background-image:url({{touxiang}});"></view>
   <view class="search-form round">
     <text class="icon-search"></text>
-    <input type="text" placeholder="" confirm-type="search"></input>
+    <input type="text" placeholder="搜索商家或职位信息" confirm-type="search" bindconfirm='search'></input>
   </view>
   <view class="action" bindtap='dakai' wx:if="{{city!='重新定位'}}">
     <text>{{city}}</text>

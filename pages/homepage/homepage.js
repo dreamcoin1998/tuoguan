@@ -39,6 +39,33 @@ Page({
   },
 
   /**
+   * 查找
+   */
+  search(e){
+    var q = e.detail.value.replace(/\s/ig, '') // 获取用户输入的值
+    console.log(q)
+    //如果输入的为空格则没有效果
+    if(q.length <= 0){
+      return
+    }else{
+      wx.request({
+        url: app.globalData.serverUrl + app.globalData.apiVersion + 'server/search',
+        header: { 'content-type': 'application/json' },
+        method: 'POST',
+        data: {'q': q},
+        success(res){
+          var value = {'value': res.data.data}
+          var value = JSON.stringify(value)
+          var value = encodeURIComponent(value)
+          wx.navigateTo({ //携带参数跳转
+            url: '/pages/src_result/src_result?value=' + value
+          })
+        }
+      })
+    }
+  },
+
+  /**
    * 下载小程序logo图片
    */
   downimage(){

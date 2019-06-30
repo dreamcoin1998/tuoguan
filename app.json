@@ -20,7 +20,8 @@
     "pages/tuoguan/tuoguan",
     "pages/addbaby/addbaby",
     "pages/kaidian/kaidian",
-    "pages/idcard/idcard"
+    "pages/idcard/idcard",
+    "pages/src_result/src_result"
   ],
   "permission": {
     "scope.userLocation": {

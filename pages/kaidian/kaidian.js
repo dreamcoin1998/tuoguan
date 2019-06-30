@@ -58,6 +58,21 @@ Page({
           that.setData({
             success: true
           })
+          var nickName = app.globalData.userInfo.nickName
+          wx.request({
+            url: app.globalData.serverUrl + app.globalData.apiVersion + 'auth/getName',
+            header: {
+              "content-type": "application/json"
+            },
+            method: 'POST',
+            data: {'nickName': nickName},
+            success: function(res){
+              var name = res.data.data.name
+              that.setData({
+                name: name
+              })
+            }
+          })
         }
       }
     })
